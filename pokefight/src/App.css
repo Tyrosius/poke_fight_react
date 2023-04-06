@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+/* customize as desired */
+:root {
+  --color-1: white;
+  --color-2: black;
+}
