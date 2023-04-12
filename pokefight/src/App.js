@@ -4,13 +4,15 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-gi
-import { Routes, Route} from "react-router-dom";
+
+import { Routes, Route } from "react-router-dom";
 import { About } from "./components/Pages/About";
 import { Home } from "./components/Pages/Home";
 import { Blog } from "./components/Pages/Blog";
 import { Contact } from "./components/Pages/Contact";
 import ErrorPage from "./components/Pages/ErrorPage";
+import DetailCard from "./components/DetailCard";
+import "./DetailCard.scss";
 
 function App() {
   const [pokemon, setPokemons] = useState();
@@ -31,21 +33,19 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar />
-        <div className="pages">
+      <Navbar />
+
+      <div className="pages">
         <Routes>
-          <Route exact path="/" element={<Home />}/>
-          <Route path="/about" element={<About />}/>
-          <Route path="/blog" element={<Blog />}/>
-          <Route path="/contact" element={<Contact />}/>
-          <Route path="*" element={<ErrorPage />}/>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
-        <Header />
-        </div>
-
-
-
-
+        <DetailCard />
+      </div>
+      <Header />
       <Footer />
     </div>
   );
