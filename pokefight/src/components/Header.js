@@ -1,3 +1,6 @@
 export default function Header() {
-  return <section>Header</section>;
+  return <section>
+    <div className="banner"></div>
+    <div className="about"></div>
+    </section>;
 }

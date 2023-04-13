@@ -3,6 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="./images/PikachuVictory.jpg" />
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -25,10 +34,32 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Poke Fight</title>
+    <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="/src/components/Navbar.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.icon').click(function () {
+          $('.nav-menu-list').toggleClass('active');
+        })
+      })
+    </script>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!--NaviLeiste-->
+  <!-- <script>
+      const menu = document.querySelector(".menu-list");
+      const menuBtn = document.querySelector(".menu-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = () =>{
+        menu.classList.add("active");
+      }
+    </script>  -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

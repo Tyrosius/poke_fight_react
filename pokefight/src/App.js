@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-gi
+import Footer from "./components/Footer"
+
 import { Routes, Route} from "react-router-dom";
 import { About } from "./components/Pages/About";
 import { Home } from "./components/Pages/Home";
@@ -40,10 +40,7 @@ function App() {
           <Route path="/contact" element={<Contact />}/>
           <Route path="*" element={<ErrorPage />}/>
         </Routes>
-        <Header />
         </div>
-
-
 
 
       <Footer />
