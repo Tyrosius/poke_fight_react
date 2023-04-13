@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import Navbar from "./components/Navbar";
+
+import { Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer";
 
-import { Routes, Route } from "react-router-dom";
 import { About } from "./components/Pages/About";
 import { Home } from "./components/Pages/Home";
 import { Blog } from "./components/Pages/Blog";
@@ -43,9 +44,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        <DetailCard />
+        </div>
+
+
+
       </div>
-      <Header />
       <Footer />
     </div>
   );

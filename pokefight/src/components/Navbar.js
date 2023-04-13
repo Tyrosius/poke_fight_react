@@ -1,17 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Navbar.css";
+import "../App.css";
 
 export default function Navbar() {
   return <>
   <nav className="navbar">
-    <div className="nav-container">
+    <div className="container">
+      <div className="logo">
+      </div>
       <NavLink exact to="/" className="nav-logo">
-        CodeBucks
+        PokeMon
       </NavLink>
 
       <ul>
-        <div className="nav-menu">
+        <div className="nav-menu-list">
           <li className="nav-item">
             <NavLink to="/" className="nav-links">Home</NavLink>
           </li>
@@ -26,9 +28,12 @@ export default function Navbar() {
           </li>
         </div>
       </ul>
-
+      <div className="icon menu-btn">
+        <i className="fas fa-bars"></i>
+      </div>
     </div>
   </nav>
+
 
 
   </>;
