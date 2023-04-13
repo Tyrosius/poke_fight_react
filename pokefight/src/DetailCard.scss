@@ -1,0 +1,104 @@
+:root {
+  --color-for-background: rgb(41, 39, 39);
+  --color-for-text: azure;
+  --color-for-bars: azure;
+  --color-Fire: rgb(156, 107, 10);
+  --color-Water: rgb(78, 78, 130);
+  --color-Poison: rgb(13, 65, 13);
+  --color-Plant: green;
+  --color-Flight: white;
+  --color-Bug: lightgreen;
+  --color-Normal: grey;
+  --color-Electro: rgb(197, 165, 22);
+  --color-Fairy: pink;
+  --color-Soil: brown;
+  --color-Fight: rgb(70, 34, 6);
+  --color-Psychic: violet;
+  --color-Steel: rgb(85, 87, 87);
+}
+
+p {
+  font-size: 1rem;
+}
+
+h5 {
+  margin: 2%;
+}
+
+.detailContainer {
+  height: 80vh;
+  width: 60vw;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 5px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-evenly;
+
+  img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .upperPart {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin: 3%;
+
+    .types {
+      border-radius: 10px;
+      box-sizing: border-box;
+      width: 100px;
+      padding: 1%;
+      margin: 2%;
+    }
+
+    #poison {
+      background-color: var(--color-Poison);
+    }
+    #plant {
+      background-color: var(--color-Plant);
+    }
+    #psychic {
+      background-color: var(--color-Psychic);
+    }
+    #bug {
+      background-color: var(--color-Bug);
+    }
+    #electric {
+      background-color: var(--color-Electro);
+    }
+  }
+
+  .lowerPart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 3%;
+
+    .lowerPartGrid {
+      display: grid;
+      grid-template-columns: 6fr 3fr 10fr;
+      width: 70%;
+      align-items: center;
+      justify-items: start;
+      gap: 5%;
+
+      .bar {
+        width: 200px;
+        height: 15px;
+        background-color: grey;
+        border-radius: 10px;
+
+        .barColored {
+          height: 15px;
+          border-radius: 10px;
+          background-color: var(--color-for-bars);
+        }
+      }
+    }
+  }
+}

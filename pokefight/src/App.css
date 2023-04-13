@@ -258,6 +258,21 @@
 .cont .card .contentBx .size span{
   width: 26px;
   height: 26px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --color-for-background: rgb(41, 39, 39);
+  --color-for-text: azure;
+}
+
+body {
+  background-color: var(--color-for-background);
+}
+
+.pages {
+  color: var(--color-for-text);
   text-align: center;
   line-height: 26px;
   font-size: 14px;
@@ -315,8 +330,18 @@
   transition: 0.5s;
 }
 
+
 .cont .card:hover .contentBx a {
   opacity: 1;
   transform: translateY(0px);
   transition-delay: 0.75s;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-size: 1em;
 }
