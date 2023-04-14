@@ -1,17 +1,14 @@
-export default function DetailCard() {
-  const data = {
-    name: "Bisasam",
-    stats: [
-      { hp: 45 },
-      { attack: 49 },
-      { defence: 49 },
-      { spAttack: 65 },
-      { spDefence: 65 },
-      { speed: 45 },
-    ],
-    pic: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    type: ["poison", "plant"],
-  };
+import { useEffect } from "react";
+import { getPokemons } from "./Fetch";
+
+export default function DetailCard({ setPokemonDetails, pokemonDetails }) {
+  //der useeffect muss eine Etage nach oben und vermutlich in ein onClick-Event o.ä. verschoben werden - je nach Aufbau der 8er Karten.
+  useEffect(() => {
+    getPokemons(
+      "https://poke-fight-api-wdg009-g1.onrender.com/pokemon/3", //hier muss der Code noch dynamisch angepasst werden mit useParams...
+      setPokemonDetails
+    );
+  }, []);
 
   return (
     <section>
@@ -19,11 +16,12 @@ export default function DetailCard() {
         <div className="upperPart">
           <img
             className="pokemonImage"
-            src="https://images.unsplash.com/photo-1643725173053-ed68676f1878?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHBva2Vtb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+            src={pokemonDetails?.pic}
+            alt={pokemonDetails?.name}
           ></img>
           <div className="upperPartRight">
-            <h5>{data.name}</h5>
-            {data.type.map((el) => {
+            <h5>{pokemonDetails?.name}</h5>
+            {pokemonDetails?.type.map((el) => {
               return (
                 <p className="types" id={el}>
                   {el}
@@ -34,8 +32,8 @@ export default function DetailCard() {
         </div>
         <div className="lowerPart">
           <div className="lowerPartGrid">
-            {data.stats.map((el) => {
-              const percentage = (Object.values(el) * 100) / 155;
+            {pokemonDetails?.stats.map((el) => {
+              const percentage = (Object.values(el) * 100) / 155; //155 entspricht dem höchten Wert, was hier als 100% gesetzt wird.
               return (
                 <>
                   <p>{Object.keys(el)}</p>
