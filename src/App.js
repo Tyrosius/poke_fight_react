@@ -26,13 +26,15 @@ function App() {
     );
   }, []);
 
+  console.log(pokemons);
+
   return (
     <div className="App">
       <Navbar />
 
       <div className="pages">
         <Routes>
-          <Route exact path="/" element={<Home pokem />} />
+          <Route exact path="/" element={<Home pokemons={pokemons} />} />
           <Route
             exact
             path="/pokemon/:id"
