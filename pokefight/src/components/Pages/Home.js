@@ -1,13 +1,14 @@
-import React from 'react'
-import Card from '../Card';
-import Header from '../Header';
-import Navbar from '../Navbar';
+import Card from "../Card";
+import Header from "../Header";
 
-export const Home = () => {
+export default function Home() {
   return (
     <div>
       <Header />
       <Card />
+      <Card />
+      <Card />
+      <Card />
     </div>
   );
-};
+}

@@ -1,11 +1,16 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
-.container{
+:root {
+  --color-for-background: rgb(41, 39, 39);
+  --color-for-text: azure;
+}
+
+.container {
   max-width: 1250px;
   margin: auto;
   padding: 0px 30px;
@@ -16,13 +21,13 @@
   z-index: 5;
   width: 100%;
   padding: 10px 0;
-  background: rgba(0,0,0,0.8);;
+  background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgb(255, 170, 1);
   border-radius: 25px;
   padding: 14px 28px;
 }
 
-.navbar .container{
+.navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,15 +40,15 @@
   text-decoration: none;
 }
 
-.navbar .nav-menu-list{
+.navbar .nav-menu-list {
   display: inline-flex;
 }
 
-.nav-menu-list li{
+.nav-menu-list li {
   list-style: none;
 }
 
-.nav-menu-list li a{
+.nav-menu-list li a {
   color: #fff;
   font-size: 18px;
   font-weight: 500;
@@ -52,23 +57,24 @@
   transition: all 0.3s ease;
 }
 
-.nav-menu-list li a:hover{
+.nav-menu-list li a:hover {
   color: red;
 }
 
-.nav-item a{
+.nav-item a {
   border: 1px solid white;
   border-radius: 25px;
   padding: 14px 28px;
 }
 
-.nav-item a.active,a:hover{
+.nav-item a.active,
+a:hover {
   border: 1px solid red;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 /*homepage-firstpic*/
-.banner{
+.banner {
   height: 100vh;
   background-image: url(../public/images/pokemon-live.jpeg);
   background-size: cover;
@@ -77,34 +83,34 @@
 }
 
 /*cards*/
-.about{
-  padding: 20px 0; 
+.about {
+  padding: 20px 0;
 }
 
-.about .title{
+.about .title {
   font-size: 35px;
   font-weight: 700;
   color: white;
 }
 
-.icon{
+.icon {
   color: #fff;
   font-size: 20px;
   cursor: pointer;
   display: none;
 }
 
-.icon.cancel-btn{
+.icon.cancel-btn {
   position: absolute;
   right: 30px;
   top: 20px;
 }
 
-@media (max-width: 868px){
-  .icon{
+@media (max-width: 868px) {
+  .icon {
     display: block;
   }
-  .navbar .nav-menu-list{
+  .navbar .nav-menu-list {
     position: fixed;
     top: 0;
     left: -100%;
@@ -117,40 +123,37 @@
     text-align: center;
     transition: all 0.3s ease;
   }
-  .navbar .nav-menu-list.active{
+  .navbar .nav-menu-list.active {
     left: 0;
   }
-  .navbar .nav-menu-list li{
+  .navbar .nav-menu-list li {
     margin-top: 45px;
   }
-  .navbar .nav-menu-list li a{
+  .navbar .nav-menu-list li a {
     font-size: 23px;
   }
 }
 
-
-
-
 /*cards*/
 
-.cont{
+.cont {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: #000000;
 }
-.cont .card{
+.cont .card {
   position: relative;
   width: 320px;
   height: 450px;
-  background: rgba(70, 60, 60, 0.8);;
+  background: rgba(70, 60, 60, 0.8);
   border: 1px solid rgb(250, 255, 254);
   border-radius: 25px;
   overflow: hidden;
 }
 
-.cont .card:before{
+.cont .card:before {
   content: "";
   position: absolute;
   top: 0;
@@ -162,20 +165,19 @@
   transition: 0.5s ease-in-out;
 }
 
-.cont .card:hover:before{
+.cont .card:hover:before {
   clip-path: circle(300px at 80% -20%);
 }
 
-.cont .card:after{
+.cont .card:after {
   content: "PokeName";
   position: absolute;
   top: 30%;
   left: -20%;
   color: rgba(255, 255, 25, 0.05);
-
 }
 
-.cont .card .imgBx{
+.cont .card .imgBx {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -185,12 +187,12 @@
   transition: 0.5s;
 }
 
-.cont .card:hover .imgBx{
+.cont .card:hover .imgBx {
   top: 0%;
   transform: translateY(0%);
 }
 
-.cont .imgBx img{
+.cont .imgBx img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -198,7 +200,7 @@
   width: 270px;
 }
 
-.cont .card .contentBx{
+.cont .card .contentBx {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -208,7 +210,7 @@
   z-index: 10;
 }
 
-.cont .card:hover .contentBx{
+.cont .card:hover .contentBx {
   height: 210px;
 }
 
@@ -221,7 +223,7 @@
 }
 
 .cont .card .contentBx .size,
-.cont .card .contentBx .color{
+.cont .card .contentBx .color {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,38 +235,33 @@
   padding-bottom: 0;
 }
 
-.cont .card:hover .contentBx .size{
+.cont .card:hover .contentBx .size {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.5s;
 }
 
-.cont .card:hover .contentBx .color{
+.cont .card:hover .contentBx .color {
   opacity: 1;
   visibility: visible;
   transition-delay: 0.6s;
 }
 
 .cont .card .contentBx .size h3,
-.cont .card .contentBx .color h3{
+.cont .card .contentBx .color h3 {
   color: #fff;
   font-weight: 300;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
-.cont .card .contentBx .size span{
+.cont .card .contentBx .size span {
   width: 26px;
   height: 26px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-:root {
-  --color-for-background: rgb(41, 39, 39);
-  --color-for-text: azure;
 }
 
 body {
@@ -285,11 +282,11 @@ body {
   cursor: pointer;
 }
 
-.cont .card .contentBx .size span:hover{
+.cont .card .contentBx .size span:hover {
   background: #ed0a0a;
 }
 
-.cont .card .contentBx .color span{
+.cont .card .contentBx .color span {
   width: 20px;
   height: 20px;
   background: #ff0;
@@ -298,19 +295,19 @@ body {
   cursor: pointer;
 }
 
-.cont .card .contentBx .color span:nth-child(2){
+.cont .card .contentBx .color span:nth-child(2) {
   background: #ed0a0a;
 }
 
-.cont .card .contentBx .color span:nth-child(3){
+.cont .card .contentBx .color span:nth-child(3) {
   background: #03a9f4;
 }
 
-.cont .card .contentBx .color span:nth-child(4){
+.cont .card .contentBx .color span:nth-child(4) {
   background: #e91e63;
 }
 
-.cont .card .contentBx a{
+.cont .card .contentBx a {
   display: inline-block;
   padding: 10px 20px;
   background: #ed0a0a;
@@ -318,18 +315,17 @@ body {
   margin-top: 10px;
   text-decoration: none;
   font-weight: 600;
-  color:#111;
+  color: #111;
   opacity: 0;
   transform: translateY(50px);
   transition: 0.5s;
   margin-top: 0;
 }
 
-.cont .card .contentBx a:hover{
-  background:#ed0a0a;
+.cont .card .contentBx a:hover {
+  background: #ed0a0a;
   transition: 0.5s;
 }
-
 
 .cont .card:hover .contentBx a {
   opacity: 1;

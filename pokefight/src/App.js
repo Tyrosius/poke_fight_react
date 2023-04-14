@@ -1,35 +1,29 @@
 import "./App.css";
+import "./DetailCard.scss";
 import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Card from "./components/Card";
+import { getPokemons } from "./components/Fetch";
+import { Routes, Route, useParams } from "react-router-dom";
+
+import Home from "./components/Pages/Home";
+import Arena from "./components/Pages/Arena";
+import Login from "./components/Pages/Login";
+import Register from "./components/Pages/Register";
 import Navbar from "./components/Navbar";
-
-import { Routes, Route} from "react-router-dom";
 import Footer from "./components/Footer";
-
-import { About } from "./components/Pages/About";
-import { Home } from "./components/Pages/Home";
-import { Blog } from "./components/Pages/Blog";
-import { Contact } from "./components/Pages/Contact";
 import ErrorPage from "./components/Pages/ErrorPage";
 import DetailCard from "./components/DetailCard";
-import "./DetailCard.scss";
 
 function App() {
-  const [pokemon, setPokemons] = useState();
-
-  const getPokemons = async (url) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setPokemons(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [pokemons, setPokemons] = useState(); // all  Pokemons for Pokedex
+  const [pokemonDetails, setPokemonDetails] = useState(); //choose a single Pokemon for details
+  const [status, setStatus] = useState(false); //state for login
 
   useEffect(() => {
-    getPokemons("http://localhost:8000/");
+    //get all pokemons for the pokedex on the home page
+    getPokemons(
+      "https://poke-fight-api-wdg009-g1.onrender.com/pokemon",
+      setPokemons
+    );
   }, []);
 
   return (
@@ -38,17 +32,24 @@ function App() {
 
       <div className="pages">
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route exact path="/" element={<Home pokem />} />
+          <Route
+            exact
+            path="/pokemon/:id"
+            element={
+              <DetailCard
+                setPokemonDetails={setPokemonDetails}
+                pokemonDetails={pokemonDetails}
+              />
+            }
+          />
+          <Route path="/arena" element={<Arena />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        </div>
-
-
-
       </div>
+
       <Footer />
     </div>
   );
