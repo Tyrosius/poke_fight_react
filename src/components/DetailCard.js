@@ -67,7 +67,7 @@ export default function DetailCard({
       <div className="prevNext">
         <Link
           className="link2Previous"
-          to={`/pokemons/${pokemonID + 1}`}
+          to={`/pokemons/${pokemonID - 1}`} // this calculation is not working!
           onClick={(e) => {
             e.preventDefault();
             const newID = pokemonID - 1;
@@ -81,7 +81,7 @@ export default function DetailCard({
         </Link>
         <Link
           className="link2Previous"
-          to={`/pokemons/${pokemonID + 1}`}
+          to={`/pokemons/${pokemonID + 1}`} // this calculation is not working!
           onClick={(e) => {
             e.preventDefault();
             const newID = pokemonID + 1;

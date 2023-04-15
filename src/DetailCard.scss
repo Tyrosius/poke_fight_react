@@ -7,7 +7,7 @@
   --color-Poison: rgb(13, 65, 13);
   --color-Plant: green;
   --color-Flight: white;
-  --color-Bug: lightgreen;
+  --color-Bug: rgb(106, 161, 106);
   --color-Normal: grey;
   --color-Electric: rgb(197, 165, 22);
   --color-Fairy: pink;
@@ -135,6 +135,7 @@ a {
     }
     #flying {
       background-color: var(--color-Flight);
+      color: var(--color-for-background);
     }
     #bug {
       background-color: var(--color-Bug);
@@ -150,6 +151,7 @@ a {
     }
     #fairy {
       background-color: var(--color-Fairy);
+      color: var(--color-for-background);
     }
     #ground {
       background-color: var(--color-Soil);
