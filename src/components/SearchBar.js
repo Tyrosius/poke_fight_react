@@ -27,7 +27,7 @@ export default function SearchBar() {
           value={search}
           onChange={(e) => handleChange()}
         ></input>
-        <button>go</button>
+        <button>GO</button>
       </form>
     </div>
   );

@@ -125,17 +125,19 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: var(--color-1);
+  flex-wrap: wrap;
+  min-height: 70vh;
+  background-color: var(--color-for-background);
 }
 .cont .card {
   position: relative;
-  width: 320px;
-  height: 450px;
-  background: var(--color-for-background);
+  width: 200px;
+  height: 350px;
+  background-color: var(--color-1);
   border: 1px solid var(--color-for-text);
   border-radius: 25px;
   overflow: hidden;
+  margin: 20px;
 }
 
 .cont .card:before {
@@ -166,7 +168,7 @@ a:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10000;
+  /* z-index: 10000; */
   width: 100%;
   height: 220px;
   transition: 0.5s;
@@ -192,7 +194,7 @@ a:hover {
   height: 100px;
   text-align: center;
   transition: 1s;
-  z-index: 10;
+  /* z-index: 10; */
 }
 
 .cont .card:hover .contentBx {
@@ -318,6 +320,13 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--color-for-background);
+}
+
+.card-Section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-for-background);
 }
 
 footer {
@@ -332,14 +341,37 @@ footer {
 
 .searchBar {
   background-color: var(--color-for-background);
+  width: 100%;
+  height: 15vh;
 }
 
 .searchBar input {
-  height: 20px;
-  width: 250px;
+  margin: 2vh;
+  height: 5vh;
+  width: 40%;
   background-color: var(--color-for-text);
+  border-radius: 10px;
   color: var(--color-1);
-  z-index: 99;
+  position: relative;
+  z-index: 9999;
+}
+
+.searchBar button {
+  background-color: var(--color-4);
+  padding: 1vh;
+  border-radius: 10px;
+  height: 5vh;
+  min-width: 40px;
+}
+
+.pagination {
+  height: 15vh;
+  width: 60%;
+  background-color: var(--color-for-background);
+  color: var(--color-for-text);
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
 }
 
 @media (max-width: 868px) {
