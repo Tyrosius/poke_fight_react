@@ -17,7 +17,7 @@ import DetailCard from "./components/DetailCard";
 function App() {
   const [pokedex, setPokedex] = useState(); // all  Pokemons for Pokedex
   const [pokemonDetails, setPokemonDetails] = useState(); //choose a single Pokemon for details
-  // const [status, setStatus] = useState(false); //state for login
+  const [status, setStatus] = useState(false); //state for login
   const [pokemonID, setPokemonID] = useState(0);
 
   useEffect(() => {
