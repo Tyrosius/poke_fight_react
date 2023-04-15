@@ -1,3 +1,5 @@
 export default function Footer() {
-  return <section className="container">Footer</section>;
+  return (
+    <footer className="footerContainer">This app is a coding sample.</footer>
+  );
 }
