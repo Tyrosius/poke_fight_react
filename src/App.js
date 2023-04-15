@@ -19,21 +19,26 @@ function App() {
   const [pokemonDetails, setPokemonDetails] = useState(); //choose a single Pokemon for details
   const [status, setStatus] = useState(false); //state for login
   const [pokemonID, setPokemonID] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     //get all pokemons for the pokedex on the home page
     getPokemons(
       "https://poke-fight-api-wdg009-g1.onrender.com/pokemon",
       setPokedex
     );
+    setLoading(false);
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     //get all pokemons for the pokedex on the home page
     getPokemons(
       `https://poke-fight-api-wdg009-g1.onrender.com/pokemon/${pokemonID}`,
       setPokemonDetails
     );
+    setLoading(false);
   }, [pokemonID]);
 
   console.log("all pokemons:", pokedex);
@@ -53,6 +58,7 @@ function App() {
                 pokemons={pokedex}
                 setPokemonDetails={setPokemonDetails}
                 setPokemonID={setPokemonID}
+                loading={loading}
               />
             }
           />
