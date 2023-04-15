@@ -1,5 +1,6 @@
 import "./App.css";
 import "./DetailCard.scss";
+
 import { useState, useEffect } from "react";
 import { getPokemons } from "./components/Fetch";
 import { Routes, Route, useParams } from "react-router-dom";
@@ -14,19 +15,29 @@ import ErrorPage from "./components/Pages/ErrorPage";
 import DetailCard from "./components/DetailCard";
 
 function App() {
-  const [pokemons, setPokemons] = useState(); // all  Pokemons for Pokedex
+  const [pokedex, setPokedex] = useState(); // all  Pokemons for Pokedex
   const [pokemonDetails, setPokemonDetails] = useState(); //choose a single Pokemon for details
-  const [status, setStatus] = useState(false); //state for login
+  // const [status, setStatus] = useState(false); //state for login
+  const [pokemonID, setPokemonID] = useState(0);
 
   useEffect(() => {
     //get all pokemons for the pokedex on the home page
     getPokemons(
       "https://poke-fight-api-wdg009-g1.onrender.com/pokemon",
-      setPokemons
+      setPokedex
     );
   }, []);
 
-  console.log(pokemons);
+  useEffect(() => {
+    //get all pokemons for the pokedex on the home page
+    getPokemons(
+      `https://poke-fight-api-wdg009-g1.onrender.com/pokemon/${pokemonID}`,
+      setPokemonDetails
+    );
+  }, [pokemonID]);
+
+  console.log("all pokemons:", pokedex);
+  console.log("PokeID:", pokemonID);
 
   return (
     <div className="App">
@@ -34,14 +45,26 @@ function App() {
 
       <div className="pages">
         <Routes>
-          <Route exact path="/" element={<Home pokemons={pokemons} />} />
           <Route
             exact
-            path="/pokemon/:id"
+            path="/"
+            element={
+              <Home
+                pokemons={pokedex}
+                setPokemonDetails={setPokemonDetails}
+                setPokemonID={setPokemonID}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/pokemons/:id"
             element={
               <DetailCard
                 setPokemonDetails={setPokemonDetails}
                 pokemonDetails={pokemonDetails}
+                pokemonID={pokemonID}
+                setPokemonID={setPokemonID}
               />
             }
           />
@@ -52,7 +75,7 @@ function App() {
         </Routes>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
