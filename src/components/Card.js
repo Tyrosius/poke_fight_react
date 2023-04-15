@@ -10,13 +10,14 @@ export default function Card({ pokemons, setPokemonDetails, setPokemonID }) {
   const [itemOffset, setItemOffset] = useState(0);
   const [displayed, setDisplayed] = useState();
 
-  const PokeCardsPerPage = 4;
+  const PokeCardsPerPage = 8;
 
   useEffect(() => {
     const endOffset = itemOffset + PokeCardsPerPage;
+    console.log("here line 17");
     setDisplayed(pokemons?.slice(itemOffset, endOffset));
     setTotalPages(Math.ceil(pokemons?.length / PokeCardsPerPage));
-  }, [itemOffset]);
+  }, [pokemons, itemOffset]);
 
   const handleChange = (page) => {
     const newOffset = page.selected * PokeCardsPerPage;
@@ -36,8 +37,8 @@ export default function Card({ pokemons, setPokemonDetails, setPokemonID }) {
           {/* <div className="about">
             <h4 className="title"></h4>
           </div> */}
-          {pokemons &&
-            pokemons.map((el) => {
+          {displayed &&
+            displayed.map((el) => {
               let ID = el.url.split("/");
               ID = Number(ID[6]); //hard coded 6, hopefully always correct
 
