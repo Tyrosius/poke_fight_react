@@ -49,7 +49,7 @@ export default function Card({ pokemons, setPokemonDetails, setPokemonID }) {
                     <div className="imgBx">
                       <img
                         src="/public/images/picmix.com_2045971 04.20.42.png"
-                        alt="pokemon"
+                        alt=""
                       />
                     </div>
                     <div className="contentBx">
