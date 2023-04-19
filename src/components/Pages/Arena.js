@@ -1,3 +1,7 @@
 export default function Arena() {
-  return;
+  return(
+  <>
+  <div className="arena"></div>
+  </>
+  );
 }
