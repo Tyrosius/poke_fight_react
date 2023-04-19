@@ -11,6 +11,7 @@ import {getUser} from "./utils/auth"
 import Home from "./components/Pages/Home";
 import Arena from "./components/Pages/Arena";
 import Login from "./components/Pages/Login";
+import Logout from "./components/Pages/Logout";
 import Register from "./components/Pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -26,14 +27,14 @@ function App() {
   const [pokemonID, setPokemonID] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
+useEffect(()=>{
     const validateToken = async () => {
       try {
         setLoading(true);
         const { data, error } = await getUser(token);
         if (error) throw error;
         setUser(data);
-        status(true);
+        setStatus(true);
         setLoading(false);
       } catch (error) {
         localStorage.removeItem('token');
@@ -42,7 +43,7 @@ function App() {
         toast.error(error.message);      }
     };
     token && validateToken();
-  },[token]);
+  },[]); 
 
   useEffect(() => {
     setLoading(true);
@@ -67,10 +68,11 @@ function App() {
   console.log("all pokemons:", pokedex);
   console.log("PokeID:", pokemonID);
 
+
   return (
     <div className="App">
       <ToastContainer/>
-      <Navbar />
+      <Navbar status={status}/>
 
       <div className="pages">
         <Routes>
@@ -101,6 +103,7 @@ function App() {
           <Route path="/arena" element={<Arena />} />
           <Route path="/register" element={<Register status={status} setStatus={setStatus} setToken={setToken} loading={loading} setLoading={setLoading}  />} />
           <Route path="/login" element={<Login status={status} setStatus={setStatus} setToken={setToken} loading={loading} setLoading={setLoading} />} />
+          <Route path="/logout" element={<Logout setToken={setToken} setUser={setUser} setStatus={setStatus} />}/>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>

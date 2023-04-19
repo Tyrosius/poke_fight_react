@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../App.css";
 
-export default function Navbar() {
+export default function Navbar({status}) {
   return (
     <>
       <nav className="navbar">
@@ -24,6 +24,12 @@ export default function Navbar() {
                   Arena
                 </NavLink>
               </li>
+              {status?
+              <li className="nav-item">
+              <NavLink to="/logout"  className="nav-links">
+                Log Out
+              </NavLink>
+            </li>:<>
               <li className="nav-item">
                 <NavLink to="/login" className="nav-links">
                   Login
@@ -34,6 +40,7 @@ export default function Navbar() {
                   Register
                 </NavLink>
               </li>
+              </>}
             </div>
           </ul>
           <div className="icon menu-btn">

@@ -1,6 +1,6 @@
 
 
-export default function Login() {
+function Login() {
 
   function handleChange(event) {
         setUser((prev) => ({

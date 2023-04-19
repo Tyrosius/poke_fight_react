@@ -1,6 +1,6 @@
 export const getUser = async token => {
   try {
-    const res = await fetch('localhost:8000/user/me', {
+    const res = await fetch('https://poke-fight-api-wdg009-g1.onrender.com/user/me', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`
@@ -40,7 +40,7 @@ export const registerUser = async credentials => {
 
 export const loginUser = async credentials => {
   try {
-    const res = await fetch(`localhost:8000/user/login`, {
+    const res = await fetch(`https://poke-fight-api-wdg009-g1.onrender.com/user/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

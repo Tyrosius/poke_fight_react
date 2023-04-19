@@ -74,7 +74,7 @@ const Login = ({
             onChange={handleChange}
           />
           <button className='btn btn-lg btn-primary btn-block mt-3' type='submit'>
-            Sign in
+            Log in
           </button>
         </form>
       </div>
