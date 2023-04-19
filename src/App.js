@@ -2,12 +2,16 @@ import "./App.css";
 import "./DetailCard.scss";
 
 import { useState, useEffect } from "react";
+import {toast,ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { getPokemons } from "./components/Fetch";
 import { Routes, Route, useParams } from "react-router-dom";
+import {getUser} from "./utils/auth"
 
 import Home from "./components/Pages/Home";
 import Arena from "./components/Pages/Arena";
 import Login from "./components/Pages/Login";
+import Logout from "./components/Pages/Logout";
 import Register from "./components/Pages/Register";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -18,8 +22,28 @@ function App() {
   const [pokedex, setPokedex] = useState(); // all  Pokemons for Pokedex
   const [pokemonDetails, setPokemonDetails] = useState(); //choose a single Pokemon for details
   const [status, setStatus] = useState(false); //state for login
+  const [token,setToken]=useState(localStorage.getItem('token'));
+  const [user,setUser]=useState(null);
   const [pokemonID, setPokemonID] = useState(0);
   const [loading, setLoading] = useState(true);
+
+useEffect(()=>{
+    const validateToken = async () => {
+      try {
+        setLoading(true);
+        const { data, error } = await getUser(token);
+        if (error) throw error;
+        setUser(data);
+        setStatus(true);
+        setLoading(false);
+      } catch (error) {
+        localStorage.removeItem('token');
+        setToken(null);
+        setLoading(false);
+        toast.error(error.message);      }
+    };
+    token && validateToken();
+  },[]); 
 
   useEffect(() => {
     setLoading(true);
@@ -44,9 +68,11 @@ function App() {
   console.log("all pokemons:", pokedex);
   console.log("PokeID:", pokemonID);
 
+
   return (
     <div className="App">
-      <Navbar />
+      <ToastContainer/>
+      <Navbar status={status}/>
 
       <div className="pages">
         <Routes>
@@ -75,8 +101,9 @@ function App() {
             }
           />
           <Route path="/arena" element={<Arena />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register status={status} setStatus={setStatus} setToken={setToken} loading={loading} setLoading={setLoading}  />} />
+          <Route path="/login" element={<Login status={status} setStatus={setStatus} setToken={setToken} loading={loading} setLoading={setLoading} />} />
+          <Route path="/logout" element={<Logout setToken={setToken} setUser={setUser} setStatus={setStatus} />}/>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
