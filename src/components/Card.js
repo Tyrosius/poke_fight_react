@@ -44,10 +44,11 @@ export default function Card({ pokemons, setPokemonDetails, setPokemonID }) {
 
               return (
                 <>
-                  <div className="card">
+                <div>
+                <div className="card">
                     <div className="imgBx">
                       <img
-                        src="../../public/images/picmix.com_2045971.png"
+                        src="/public/images/picmix.com_2045971 04.20.42.png"
                         alt="pokemon"
                       />
                     </div>
@@ -76,6 +77,7 @@ export default function Card({ pokemons, setPokemonDetails, setPokemonID }) {
                       {/* <a href="#">Insert list</a> */}
                     </div>
                   </div>
+                </div>
                 </>
               );
             })}

@@ -7,10 +7,13 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="container">
-          <div className="logo"></div>
+          <div className="logo">
+            <img src="file:///Users/fatimayilmaz/Desktop/wbs%20coding%20school/GruppenProjekte/Pokemon/poke_fight_react/public/images/logo.png" alt="" />
           <NavLink exact to="/" className="nav-logo">
             PokeMon
           </NavLink>
+          </div>
+          
 
           <ul>
             <div className="nav-menu-list">
