@@ -140,7 +140,9 @@ a:hover {
   flex-wrap: wrap;
   min-height: 70vh;
   background-color: var(--color-for-background);
+  padding: 5% 20%;
 }
+
 .cont .card {
   position: relative;
   width: 200px;
